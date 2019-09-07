@@ -2,8 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:async/async.dart';
 void main() => runApp(MaterialApp(
+  debugShowCheckedModeBanner: false,
 home: HomePage()
 
 ));
@@ -57,11 +57,38 @@ void initState() {
 children: <Widget>[
 
   Card(  
-    child: Container(  
-      child: Text( data[index]['name']),
-      padding: EdgeInsets.all(15),
-    ),
-  )
+
+
+child:Column(
+  children: <Widget>[
+        Row(
+      
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+    Container(  
+          child: Text( data[index]['name']),
+          padding: EdgeInsets.all(15),
+    
+        ),
+         Container( 
+          child: Text( data[index]['mass']),
+          padding: EdgeInsets.all(15),
+        ),
+        
+    ],),
+
+Container( 
+alignment: Alignment.center,
+  child: Text(
+    data[index]["birth_year"]
+  ),
+)
+  ],
+)
+
+),
+
+ 
 ],
 
             ),),
